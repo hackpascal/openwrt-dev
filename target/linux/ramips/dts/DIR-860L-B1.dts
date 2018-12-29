@@ -111,7 +111,7 @@
 			};
 
 			partition@50000 {
-				compatible = "denx,uimage";
+				compatible = "seama";
 				label = "firmware";
 				reg = <0x50000 0xfb0000>;
 			};
