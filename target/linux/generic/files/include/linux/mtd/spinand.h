@@ -237,6 +237,7 @@ struct spinand_ecc_info {
 };
 
 #define SPINAND_HAS_QE_BIT		BIT(0)
+#define SPINAND_RELOAD_PAGE_0		BIT(1)
 
 /**
  * struct spinand_info - Structure used to describe SPI NAND chips

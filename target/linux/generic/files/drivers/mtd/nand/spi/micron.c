@@ -127,8 +127,10 @@ static void micron_spinand_generate_nor_emu_table(void)
 	memcpy(micron_spinand_nor_emu_table, micron_spinand_table,
 	       sizeof(micron_spinand_table));
 
-	for (i = 0; i < TABLE_SZ; i++)
+	for (i = 0; i < TABLE_SZ; i++) {
 		info[i].op_variants.read_cache = &read_cache_variants_nor_emu;
+		info[i].flags |= SPINAND_RELOAD_PAGE_0;
+	}
 }
 
 static int micron_spinand_read_cfg_reg(struct spinand_device *spinand, u8 *buf,
