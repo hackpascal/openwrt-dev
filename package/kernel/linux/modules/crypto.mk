@@ -39,12 +39,13 @@ define KernelPackage/crypto-aead
   TITLE:=CryptoAPI AEAD support
   KCONFIG:= \
 	CONFIG_CRYPTO_AEAD \
-	CONFIG_CRYPTO_AEAD2
+	CONFIG_CRYPTO_AEAD2 \
+	CONFIG_CRYPTO_GENIV
   FILES:= \
 	  $(LINUX_DIR)/crypto/aead.ko \
 	  $(LINUX_DIR)/crypto/geniv.ko
   AUTOLOAD:=$(call AutoLoad,09,aead,1)
-  $(call AddDepends/crypto, +kmod-crypto-null)
+  $(call AddDepends/crypto, +kmod-crypto-null +kmod-crypto-rng)
 endef
 
 $(eval $(call KernelPackage,crypto-aead))
@@ -216,7 +217,7 @@ $(eval $(call KernelPackage,crypto-ecb))
 
 define KernelPackage/crypto-ecdh
   TITLE:=ECDH algorithm
-  DEPENDS:=+kmod-crypto-kpp
+  DEPENDS:=+kmod-crypto-kpp +kmod-crypto-rng
   KCONFIG:= CONFIG_CRYPTO_ECDH
   FILES:= \
 	$(LINUX_DIR)/crypto/ecdh_generic.ko \
