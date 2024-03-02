@@ -378,7 +378,7 @@ $(eval $(call KernelPackage,phy-smsc))
 define KernelPackage/phy-airoha-en8811h
   SUBMENU:=$(NETWORK_DEVICES_MENU)
   TITLE:=Airoha EN8811H 2.5G Ethernet PHY
-  DEPENDS:=+airoha-en8811h-firmware +kmod-libphy @LINUX_6_1
+  DEPENDS:=+airoha-en8811h-firmware +kmod-libphy @!LINUX_5_15
   KCONFIG:=CONFIG_AIR_EN8811H_PHY
   FILES:= \
    $(LINUX_DIR)/drivers/net/phy/air_en8811h.ko
