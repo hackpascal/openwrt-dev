@@ -846,7 +846,8 @@ define KernelPackage/crypto-rsa
   KCONFIG:= CONFIG_CRYPTO_RSA
   HIDDEN:=1
   FILES:= \
-	$(LINUX_DIR)/lib/mpi/mpi.ko \
+	$(LINUX_DIR)/lib/mpi/mpi.ko@lt6.5 \
+	$(LINUX_DIR)/lib/crypto/mpi/mpi.ko@ge6.5 \
 	$(LINUX_DIR)/crypto/akcipher.ko \
 	$(LINUX_DIR)/crypto/rsa_generic.ko
   AUTOLOAD:=$(call AutoLoad,10,rsa_generic)
